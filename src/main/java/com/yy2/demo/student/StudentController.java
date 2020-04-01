@@ -1,14 +1,9 @@
 package com.yy2.demo.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("students")
@@ -34,4 +29,12 @@ public class StudentController {
         //createDefaultStudents();
         return studentService.getAllStudents();
     }
+
+    @PostMapping
+    public void addNewStudent(@RequestBody Student student) {
+
+        studentService.addNewStudent(student);
+        //System.out.println(student);
+    }
+
 }
